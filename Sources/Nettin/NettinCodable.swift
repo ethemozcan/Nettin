@@ -9,7 +9,7 @@ import Foundation
 
 public class NettinCodable: NettinCodableProtocol {
     var client: NettinClientProtocol
-    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy?
+    public var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy?
 
     init(_ client: NettinClientProtocol = NettinClient(), dateDecodingStrategy: JSONDecoder.DateDecodingStrategy?) {
         self.client = client

@@ -14,4 +14,6 @@ public protocol NettinCodableProtocol {
                         queryParameters: [String: String]?,
                         httpHeaders: [String: String]?,
                         completion: @escaping (Result<T, NettinError>) -> (Void))
+
+    var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy? { get set }
 }
