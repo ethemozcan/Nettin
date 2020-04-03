@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NettinClientProtocol {
+public protocol NettinClientProtocol {
     func get(url: URL,
              urlParameters: [String]?,
              queryParameters: [String: String]?,

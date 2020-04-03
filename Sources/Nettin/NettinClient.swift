@@ -8,7 +8,7 @@
 import Foundation
 
 class NettinClient {
-    var session: URLSession
+    private var session: URLSession
 
     init(_ session: URLSession? = nil) {
         self.session = session ?? URLSession.shared
