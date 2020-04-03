@@ -50,9 +50,9 @@ public class NettinClient {
     }
 
     private func buildURL(_ url: URL,
-                  _ urlParameters: [String]?,
-                  _ queryParameters: [String : String]?,
-                  _ httpHeaders: [String : String]?) -> URL? {
+                          _ urlParameters: [String]?,
+                          _ queryParameters: [String : String]?,
+                          _ httpHeaders: [String : String]?) -> URL? {
         var newURL = url
 
         urlParameters?.forEach { newURL.appendPathComponent($0) }
@@ -74,17 +74,17 @@ public class NettinClient {
 }
 
 extension NettinClient: NettinClientProtocol {
-    func get(url: URL,
-             urlParameters: [String]?,
-             queryParameters: [String : String]?,
-             httpHeaders: [String : String]?,
-             completion: @escaping (Result<Data?, NettinError>) -> (Void)) {
+    public func get(url: URL,
+                    urlParameters: [String]?,
+                    queryParameters: [String : String]?,
+                    httpHeaders: [String : String]?,
+                    completion: @escaping (Result<Data?, NettinError>) -> (Void)) {
 
         guard let requestURL = buildURL(url, urlParameters, queryParameters, httpHeaders) else {
             assertionFailure("Invalid URL")
             return
         }
-
+        
         var request = URLRequest(url: requestURL)
 
         httpHeaders?.forEach { key, value in
