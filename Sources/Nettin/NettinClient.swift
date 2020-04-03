@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NettinClient {
+public class NettinClient {
     private var session: URLSession
 
     init(_ session: URLSession? = nil) {
