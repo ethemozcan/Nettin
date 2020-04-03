@@ -10,7 +10,7 @@ import Foundation
 public class NettinClient {
     private var session: URLSession
 
-    init(_ session: URLSession? = nil) {
+    public init(_ session: URLSession? = nil) {
         self.session = session ?? URLSession.shared
     }
 
@@ -84,7 +84,7 @@ extension NettinClient: NettinClientProtocol {
             assertionFailure("Invalid URL")
             return
         }
-        
+
         var request = URLRequest(url: requestURL)
 
         httpHeaders?.forEach { key, value in

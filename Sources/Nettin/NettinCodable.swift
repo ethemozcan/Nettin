@@ -11,7 +11,7 @@ public class NettinCodable: NettinCodableProtocol {
     private var client: NettinClientProtocol
     public var dateDecodingStrategy: JSONDecoder.DateDecodingStrategy?
 
-    init(_ client: NettinClientProtocol = NettinClient(), dateDecodingStrategy: JSONDecoder.DateDecodingStrategy?) {
+    public init(_ client: NettinClientProtocol = NettinClient(), dateDecodingStrategy: JSONDecoder.DateDecodingStrategy?) {
         self.client = client
         self.dateDecodingStrategy = dateDecodingStrategy
     }
