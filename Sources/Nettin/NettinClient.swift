@@ -58,10 +58,14 @@ class NettinClient {
         urlParameters?.forEach { newURL.appendPathComponent($0) }
 
         if let queryParameters = queryParameters {
-            var urlComponents = URLComponents(url: newURL, resolvingAgainstBaseURL: false)
+            var urlComponents = URLComponents(url: newURL, resolvingAgainstBaseURL: true)
 
             urlComponents?.queryItems = queryParameters.compactMap { key, value in
                 URLQueryItem(name: key, value: value)
+            }
+
+            if let url = urlComponents?.url {
+                newURL = url
             }
         }
 

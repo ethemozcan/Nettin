@@ -1,3 +1,11 @@
+//
+//  File.swift
+//  
+//
+//  Created by Ethem Özcan on 03.04.20.
+//
+
+import Foundation
 import XCTest
 @testable import Nettin
 
@@ -7,7 +15,7 @@ struct testResponse: Codable {
     let date: Date
 }
 
-final class NettinTests: XCTestCase {
+final class NettinCodableTests: XCTestCase {
     var nettinClient: FakeNettinClient!
     var networkCodable: NettinCodableProtocol!
     let formatter = DateFormatter()
