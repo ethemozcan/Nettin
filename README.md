@@ -7,5 +7,5 @@ Just a simple *incomplete* network client with json codable support.
 ### Swift Package Manager
 
 ```swift
-.package(url: "https://github.com/ethemozcan/Nettin.git", .upToNextMinor(from: "0.2"))
+.package(url: "https://github.com/ethemozcan/Nettin.git", .upToNextMinor(from: "0.0.1"))
 ```
