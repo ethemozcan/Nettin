@@ -1,18 +1,6 @@
+import Foundation
 import XCTest
 @testable import Nettin
-
-class FakeURLSession: URLSession {
-    var fakeData: Data?
-    var fakeURLRespnonse: URLResponse?
-    var fakeError: Error?
-    var request: URLRequest!
-
-    override func dataTask(with request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
-        self.request = request
-        completionHandler(fakeData, fakeURLRespnonse, fakeError)
-        return URLSessionDataTask()
-    }
-}
 
 enum FakeErrorType: Error {
     case testError
@@ -21,7 +9,7 @@ enum FakeErrorType: Error {
 final class NettinClientTests: XCTestCase {
     var nettinClient: NettinClient!
     var fakeSession = FakeURLSession()
-    var fakeURL = URL(string: "http:www.ethem.eu")!
+    var fakeURL = URL(string: "http://www.ethem.eu")!
 
     override func setUp() {
         nettinClient = NettinClient(fakeSession)
@@ -41,7 +29,8 @@ final class NettinClientTests: XCTestCase {
                             let components = URLComponents(url: (self?.fakeSession.request.url)!, resolvingAgainstBaseURL: false)!
                             XCTAssertEqual(components.queryItems?.count, 1)
                             XCTAssertEqual(components.query, "queryParam=Query Param Value")
-                            XCTAssertEqual(components.path, "www.ethem.eu/URLparam1/URL param 2")
+                            XCTAssertEqual(components.path, "/URLparam1/URL param 2")
+                            XCTAssertEqual(components.host, "www.ethem.eu")
                             XCTAssertEqual(self?.fakeSession.request.allHTTPHeaderFields, ["headerParam": "header Value"])
 
                             expectation.fulfill()
