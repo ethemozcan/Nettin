@@ -1,6 +1,6 @@
 # Nettin
 
-Jsut a simple *incomplete* network client with json codable support. 
+Just a simple *incomplete* network client with json codable support. 
 
 ## Installation
 
