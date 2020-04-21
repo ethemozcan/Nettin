@@ -17,9 +17,9 @@ Just a simple *incomplete* network client with json codable support.
 ```swift
 import Nettin
 
-var networkCodable: NetworkCodableProtocol
+var nettinCodable: NettinCodableProtocol
 
-networkCodable.get(
+nettinCodable.get(
     ModelStruct.self,
     url: URL(string: "http://api.domain.com")!,
     urlParameters: ["URLparam1", "URL param 2"],
